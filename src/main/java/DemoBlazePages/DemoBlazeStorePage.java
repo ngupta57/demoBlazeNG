@@ -34,6 +34,37 @@ public class DemoBlazeStorePage extends GenericWrappers {
     
         public void acceptAlert() {
     }
+        public DemoBlazeStorePage clickLogin() {
+            clickByXpath(prop.getProperty("DemoBlazeStorePage.LnkNavbarLogIn.XPath"));
+            waitProperty(3000);
+            return this;
+        }
+        public DemoBlazeStorePage verifyLoginFormIsDisplayed() {
+            verifyIsElementDisplayedByXpath(prop.getProperty(" DemoBlazeStorePage.HeaderTxtLoginForm.XPath"));
+            return this;
+        }
+        //Enter login user name in the login form
+        public DemoBlazeStorePage enterLoginName(String userNme) {
+            enterByXpath(prop.getProperty("DemoBlazeStorePage.TxtFldLoginUser.XPath"),userNme);
+            waitProperty(3000);
+            return this;
+        }
+        //Enter pwd in the login form
+        public DemoBlazeStorePage enterLoginPassWord(String passWord) {
+            enterByXpath(prop.getProperty("DemoBlazeStorePage.TxtFldLoginPassword.XPat"),passWord);
+            waitProperty(6000);
+            return this;
+        }
+        //Click on login button in the login form
+        public DemoBlazeStorePage clickLoginButton() {
+            clickByXpath(prop.getProperty("DemoBlazeStorePage.ButtonLogin.XPath"));
+            waitProperty(6000);
+            return this;
+        } 
+        
+        
+       
+        
 }
 
 
