@@ -20,7 +20,7 @@ public class TC_002_DemoBlaze_Login_Test extends ProjectWrappers{
 	        
 	        @Test(dataProvider="fetchData")
 	        
-	    	public void logInTest(String userName, String password) {      
+	    	public void logInTest(String userName, String password, String expectedMsg) {      
 	       
 	            //from landing page
 	            new DemoBlazeStorePage()
@@ -29,13 +29,17 @@ public class TC_002_DemoBlaze_Login_Test extends ProjectWrappers{
 	                    //Click on Login Link on the top nav bar
 	                    .clickLogin()
 	                    //Validate login text header on login form is displayed
-	                   // .verifyLoginFormIsDisplayed()
+	                    .verifyLoginFormIsDisplayed()
 	                    //enter UserName in the text field on login form
 	                    .enterLoginName(userName)	                    
 	                    //enter password in the text field on login form
 	                    .enterLoginPassWord(password)	                    
 	                    //Click login Button present on login form
-	                    .clickLoginButton();
+	                    .clickLoginButton()
+	                  //Validate login SUCCESS 
+	                    .verifyLoginSuccess()
+	                  //Validate login MSG text AFTER LOGIN MATCH
+	                    .validateWelcomeMsgLogin(expectedMsg);
 	                   
 
 	        }
