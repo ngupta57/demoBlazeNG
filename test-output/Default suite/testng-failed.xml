@@ -9,7 +9,7 @@
           <include name="beforeTest"/>
           <include name="afterMethod"/>
           <include name="afterTest"/>
-          <include name="addToCartTest" invocation-numbers="0"/>
+          <include name="addToCartTest"/>
           <include name="beforeSuite"/>
           <include name="afterClass"/>
           <include name="beforeMethod"/>

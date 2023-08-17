@@ -20,7 +20,7 @@ public class TC_005_AddToCartTest extends ProjectWrappers{
 	        
 	        @Test(dataProvider="fetchData")
 	        
-	    	public void addToCartTest(String expName, String expPrice,String expMsg) {      
+	    	public void addToCartTest(String expName,String expPrice,String expMsg) {      
 	       
 	            //from landing page
 	            new DemoBlazeStorePage()
@@ -35,7 +35,7 @@ public class TC_005_AddToCartTest extends ProjectWrappers{
 	                    .verifyMonitorSearchItem2IsDisplayed()
 	                    .ClickMonitorSearchItem2()
 	                    .validateSearch2ProductName(expName)
-	                    .validateSearch2ProductPrice(expPrice)
+	                  .validateSearch2ProductPrice(expPrice)
 	                    .ClickAddToCart()
 	                    . GetAlertMSGandAccept(expMsg);
 	                    
