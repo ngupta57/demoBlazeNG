@@ -3,19 +3,19 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="DemoBlazeTests.TC_002_DemoBlaze_Login_Test">
+      <class name="DemoBlazeTests.TC_005_AddToCartTest">
         <methods>
           <include name="afterSuite"/>
           <include name="beforeTest"/>
           <include name="afterMethod"/>
           <include name="afterTest"/>
+          <include name="addToCartTest" invocation-numbers="0"/>
           <include name="beforeSuite"/>
           <include name="afterClass"/>
-          <include name="logInTest" invocation-numbers="0 1"/>
-          <include name="setConditions"/>
           <include name="beforeMethod"/>
+          <include name="setConditions"/>
         </methods>
-      </class> <!-- DemoBlazeTests.TC_002_DemoBlaze_Login_Test -->
+      </class> <!-- DemoBlazeTests.TC_005_AddToCartTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
