@@ -10,76 +10,17 @@ public class DemoBlazeStorePage extends GenericWrappers {
 		verifyIsElementDisplayedByXpath(prop.getProperty("DemoBlazeStorePage.LnkNavbarBrand.XPath"));
 		return this;
 	}
-	public DemoBlazeStorePage clickSignUp() {
+	public SignupPage clickSignUp() {
 		clickByXpath(prop.getProperty("DemoBlazeStorePage.LnkNavbarSignUp.XPath"));
-		return this;
+		return new SignupPage();
 	}
-	public DemoBlazeStorePage verifySignUpFormIsDisplayed() {
-		verifyIsElementDisplayedByXpath(prop.getProperty("DemoBlazeStorePage.HeaderTxtSignUpForm.XPath"));
-		return this;
-	}
-
-	//Enter username in the signup form
-	public DemoBlazeStorePage enterUserName(String uname) {
-		enterByXpath(prop.getProperty("DemoBlazeStorePage.TxtFieldUserNameSignUpForm.XPath"),uname);
-		return this;
-	}
-
-
-
-	//Enter username in the signup form
-	public DemoBlazeStorePage enterRandomUserName() {
-		String user2Nme=randomAlphaNumeric();
-		enterByXpath(prop.getProperty("DemoBlazeStorePage.TxtFieldUserNameSignUpForm.XPath"),user2Nme);
-		return this;
-	}
-	//Enter pwd in the signup form
-	public DemoBlazeStorePage enterPassWord(String passWord) {
-		enterByXpath(prop.getProperty("DemoBlazeStorePage.TxtFieldUserPasswordSignUpForm.XPath"),passWord);
-		return this;
-	}
-	//Click on signUp button in the signup form
-	public DemoBlazeStorePage clickSignUpButton() {
-		clickByXpath(prop.getProperty("DemoBlazeStorePage.ButtonSignUpSignUpForm.XPath"));
-		return this;
-	}
-
-	//public void acceptAlert() {
 	
-	public DemoBlazeStorePage clickLogin() {
+	public DemoBlazeLoginPage clickLogin() {
 		clickByXpath(prop.getProperty("DemoBlazeStorePage.LnkNavbarLogIn.XPath"));
 		waitProperty(3000);
-		return this;
+		return new DemoBlazeLoginPage();
 	}
-	public DemoBlazeStorePage verifyLoginFormIsDisplayed() {
-		verifyIsElementDisplayedByXpath(prop.getProperty("DemoBlazeStorePage.HeaderTxtLoginForm.XPath"));
-		return this;
-	}
-	//Enter login user name in the login form
-	public DemoBlazeStorePage enterLoginName(String userNme) {
-		enterByXpath(prop.getProperty("DemoBlazeStorePage.TxtFldLoginUser.XPath"),userNme);
-		waitProperty(3000);
-		return this;
-	}
-	//Enter pwd in the login form
-	public DemoBlazeStorePage enterLoginPassWord(String passWord) {
-		waitProperty(3000);
-		enterByXpath(prop.getProperty("DemoBlazeStorePage.TxtFldLoginPassword.XPath"),passWord);
-
-		return this;
-	}
-	//Click on login button in the login form
-	public DemoBlazeStorePage clickLoginButton() {
-	clickByXpath(prop.getProperty("DemoBlazeStorePage.ButtonLogin.XPath"));
-	waitProperty(3000);
-		return this;
-	} 
-	//VERIFY AFTER LOGIN 
-	public DemoBlazeStorePage verifyLoginSuccess() {
-		verifyIsElementDisplayedByXpath(prop.getProperty("DemoBlazeStorePage.TxtLnkWelcomeText.XPath"));
-		waitProperty(3000);
-		return this;
-	} 
+	
 	//VERIFY AFTER LOGIN TEXT PRESENT AS EXPECTED
 	public DemoBlazeStorePage validateWelcomeMsgLogin(String expectedMsg) {
 		verifyTextByXpath(prop.getProperty("DemoBlazeStorePage.TxtLnkWelcomeText.XPath"),expectedMsg);
@@ -88,39 +29,14 @@ public class DemoBlazeStorePage extends GenericWrappers {
 	} 
 
 
-	//Click on cONTACT TAB IN TOP NAV BAR
+	//Click on Contact tab present under top   NAV BAR
 
-	public DemoBlazeStorePage clickContactTab() {
+	public DemoBlazeContactUsPage clickContactTab() {
 		clickByXpath(prop.getProperty("DemoBlazeStorePage.LnkNavbarContact.XPath"));
 		waitProperty(6000);
-		return this;
-	}
-	public DemoBlazeStorePage verifyNewMessageFormIsDisplayed() {
-		verifyIsElementDisplayedByXpath(prop.getProperty("DemoBlazeStorePage.TxtHeaderNewMessage.XPath"));
-		waitProperty(2000);
-		return this;
+		return new DemoBlazeContactUsPage();
 	}
 
-	//Enter contact Email in the Message form
-	public DemoBlazeStorePage enterContactEmail(String conEmail) {
-		enterByXpath(prop.getProperty("DemoBlazeStorePage.TxtfieldMsgContactEmail.XPath"),conEmail);
-		return this;
-
-	}
-	//Enter contact Name in the Message form
-
-	public DemoBlazeStorePage enterContactName(String conName) {
-		enterByXpath(prop.getProperty("DemoBlazeStorePage.TxtfieldMsgContactName.XPath"),conName);
-		return this;
-
-	}
-	//Enter Message text in the msg text box
-
-	public DemoBlazeStorePage enterMessageText(String message) {
-		enterByXpath(prop.getProperty("DemoBlazeStorePage.TxtfieldMsgBox.XPath"),message);
-		waitProperty(3000);
-		return this;               
-	}
 	//Click SEND Message bUTTON AND GET THE sUCCESSMSG FROM THE ALERT POPUP        
 	/*
 	 * public DemoBlazeStorePage clickSendButton(String expText) {
@@ -132,10 +48,7 @@ public class DemoBlazeStorePage extends GenericWrappers {
 	 * Assert.assertFalse(false); } acceptAlert(); return this; }
 	 */
 	//Click on signUp button in the signup form
-		public DemoBlazeStorePage clickSendMsg() {
-			clickByXpath(prop.getProperty("DemoBlazeStorePage.ButtonSendMsg.XPath"));
-			return this;
-		}
+		
 		public void acceptAlert() {
 		}
 		//Actions on home page
@@ -178,20 +91,33 @@ public class DemoBlazeStorePage extends GenericWrappers {
 		} 
 		public DemoBlazeStorePage GetAlertMSGandAccept(String ExpMsg) {
 			String ActMsg = getAlertText();
-			if (ActMsg == ExpMsg) {
-				System.out.println("On Adding Cart EXP msg was displayed"+ActMsg);
-				//Assert.assertTrue(true);}
-			//else
-				//System.out.println("On Adding Cart EXP msg was not displayed"+ActMsg);
-			
-			//Assert.assertTrue(false);
-			} 
-			acceptAlert();
-			return this;
-			
-				
+			if (ActMsg.contentEquals(ExpMsg)) {
+				System.out.println("On Adding Cart EXP msg was displayed" +ActMsg);
+				Assert.assertTrue(true);}
+			else {
+				System.out.println("On Adding Cart EXP msg was not displayed" +ActMsg);			
+			    Assert.assertTrue(false);} 
+			   acceptAlert();
+			return this;			
 			}
-				
+		
+		public DemoBlazeCartPage clickCartTab() {
+			clickByXpath(prop.getProperty("DemoBlazeStorePage.LnkNavbarCart.XPath"));
+			waitProperty(6000);
+			return new DemoBlazeCartPage();
+		}
+		
+		//VERIFY AFTER welcome text after LOGIN 
+		public DemoBlazeStorePage verifyLoginSuccess() {
+			verifyIsElementDisplayedByXpath(prop.getProperty("DemoBlazeStorePage.TxtLnkWelcomeText.XPath"));
+			waitProperty(3000);
+			
+			return this;
+		} 
+
+	
+		
+		
 			}
 
 		

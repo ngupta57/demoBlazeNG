@@ -14,12 +14,13 @@ public class TC_001_DemoBlaze_Signup_Test extends ProjectWrappers{
 	        testCaseDescription="TC_001_DemoBlaze_Signup_Test-Validates the user can SignUp for the site without any issue";
 	        author="Narinder Gupta";
 	        category="Smoke";
-	        sheetname="TC_001_DemoBlaze";	 
+	        sheetname="TC_001_DemoBlaze";
+	        
+	        
 	        
 	  }
 	        
 	        @Test(dataProvider="fetchData")
-	        
 	    	public void signUpTest(String userName, String password) {      
 	       
 	            //from landing page

@@ -77,6 +77,7 @@ public class GenericWrappers extends Reporting implements Wrappers {
 	
 	public void unloadObjects() {
 		prop=null;
+		cProp=null;
 	}
 
 	public void invokeApp(String browser, String url) {
@@ -96,9 +97,7 @@ public class GenericWrappers extends Reporting implements Wrappers {
 			}
 			driver.manage().window().maximize();
 			driver.get(url);
-			
-			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-			
+		
 			//System.out.println("The browser "+browser+" is successfully launched with the given url "+url);
 			
 			reportStep("The browser "+browser+" is successfully launched with the given url "+url , "pass");
@@ -135,11 +134,7 @@ public class GenericWrappers extends Reporting implements Wrappers {
 		try {
 			
 			driver.findElement(By.id(idValue)).sendKeys(data);
-			//driver.findElementById(idValue).sendKeys(data);
-			//driver.findElementById(idValue).sendKeys(data);
-			//System.out.println("The element with id "+idValue+" is entered with data "+data);
 			
-			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 			reportStep("The element with id "+idValue+" is entered with data "+data, "pass");
 			
 		} catch (NoSuchElementException e) {
@@ -215,7 +210,7 @@ public class GenericWrappers extends Reporting implements Wrappers {
 		} catch (NoSuchElementException e) {
 			// TODO Auto-generated catch block
 			//System.err.println("The element with the xpath "+xpathValue+" is not found in the DOM ");
-			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
 			reportStep("The element with the xpath "+xpathValue+" is not found in the DOM ","fail");			
 		}
 		catch (ElementNotInteractableException e) {
@@ -271,7 +266,7 @@ public class GenericWrappers extends Reporting implements Wrappers {
 			if(actualtext.equals(text)) {
 			//	System.out.println("The element with the id "+id+" is holding the text "+actualtext+" is mathched with expected text "+text);
 				
-				driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+	
 				reportStep("The element with the id "+id+" is holding the text "+actualtext+" is mathched with expected text "+text,"pass");
 				
 			}else {
@@ -351,7 +346,7 @@ public class GenericWrappers extends Reporting implements Wrappers {
 		try {
 			if (actualtext.contains(text)) {
 				//System.out.println("The element with the xpath "+xpath+" is holding the text "+actualtext+" partially matched with the expected text "+text);
-				driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+	
 				reportStep("The element with the xpath "+xpath+" is holding the text "+actualtext+" partially matched with the expected text "+text,"pass");
 				
 			}else {
@@ -390,7 +385,7 @@ public class GenericWrappers extends Reporting implements Wrappers {
 			//System.out.println("The element with the id "+id+" is successfully clicked" );
 			
 			
-			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
 			reportStep("The element with the id "+id+" is successfully clicked","pass");
 			
 		} catch (NoSuchElementException e) {
@@ -423,7 +418,7 @@ public class GenericWrappers extends Reporting implements Wrappers {
 			driver.findElement(By.className(classVal)).click();
 			
 			//System.out.println("The element with the classname "+classVal+" is successfully clicked");
-			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
 			reportStep("The element with the classname "+classVal+" is successfully clicked","pass");
 			
 			
@@ -456,7 +451,7 @@ public class GenericWrappers extends Reporting implements Wrappers {
 		try {
 			driver.findElement(By.name(name)).click();
 			//System.out.println("The element with the name "+name+" is clicked successfully");			
-			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
 			reportStep("The element with the name "+name+" is clicked successfully","pass");
 			
 		} catch (NoSuchElementException e) {
@@ -488,7 +483,7 @@ public class GenericWrappers extends Reporting implements Wrappers {
 			driver.findElement(By.linkText(name)).click();
 			//System.out.println("The element with link name "+name+" is clicked successfully");
 			
-			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
 			reportStep("The element with link name "+name+" is clicked successfully","pass");
 		
 		} catch (NoSuchElementException e) {
@@ -520,7 +515,7 @@ public class GenericWrappers extends Reporting implements Wrappers {
 			driver.findElement(By.linkText(name)).click();
 			//System.out.println("The element with the link name "+name+" is clicked successfully");
 			
-			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
 			reportStep("The element with the link name "+name+" is clicked successfully","pass");
 			
 		} catch (NoSuchElementException e) {
@@ -559,13 +554,13 @@ public class GenericWrappers extends Reporting implements Wrappers {
 			driver.findElement(By.xpath(xpathVal)).click();
 			//System.out.println("The element with the xpath "+xpathVal+" is clicked successfully");
 			
-			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
 			reportStep("The element with the xpath "+xpathVal+" is clicked successfully","pass");
 			
 		} catch (NoSuchElementException e) {
 			// TODO Auto-generated catch block
 			//System.err.println("The element with the xpath "+xpathVal+" is not found in the DOM");
-			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
 			reportStep("The element with the xpath "+xpathVal+" is not found in the DOM","fail");
 			
 		}catch (ElementClickInterceptedException e) {
@@ -598,7 +593,7 @@ public void clickByXpath(String xpathVal) {
 		} catch (NoSuchElementException e) {
 			// TODO Auto-generated catch block
 			//System.err.println("The element with the xpath "+xpathVal+" is not found in the DOM");
-			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
 			reportStep("The element with the xpath "+xpathVal+" is not found in the DOM","fail");
 			
 		}catch (ElementClickInterceptedException e) {
@@ -624,7 +619,7 @@ public void clickByXpath(String xpathVal) {
 			driver.findElement(By.xpath(xpathVal)).click();
 			//System.out.println("The element with the xpath "+xpathVal+" is clicked successfully");
 			
-			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
 			reportStep("The element with the xpath "+xpathVal+" is clicked successfully","pass");
 			
 		} catch (NoSuchElementException e) {
@@ -658,7 +653,7 @@ public void clickByXpath(String xpathVal) {
 				atext = driver.findElement(By.id(idVal)).getText();
 				//System.out.println("The element with the id "+idVal+" is holding the text "+atext);
 				
-				driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+	
 				reportStep("The element with the id "+idVal+" is holding the text "+atext,"pass");
 				
 			} catch (NoSuchElementException e) {
@@ -736,7 +731,7 @@ public void clickByXpath(String xpathVal) {
 			//System.out.println("The element with the id "+id+" is selected the dropdown visible text "+value);
 			
 			
-			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
 			reportStep("The element with the id "+id+" is selected the dropdown visible text "+value,"pass");
 			
 		} catch (NoSuchElementException e) {
@@ -774,7 +769,7 @@ public void clickByXpath(String xpathVal) {
 			//System.out.println("The element with the id "+id+" is selected dropdown using index value "+value);
 			
 			
-			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
 			reportStep("The element with the id "+id+" is selected dropdown using index value "+value,"pass");
 			
 		} catch (NoSuchElementException e) {
@@ -812,7 +807,7 @@ public void clickByXpath(String xpathVal) {
 			//System.out.println("Switched to the parent window from the current window");
 			
 			
-			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
 			reportStep("Switched to the parent window from the current window","pass");
 			
 		} catch (NoSuchWindowException e) {
@@ -840,7 +835,7 @@ public void clickByXpath(String xpathVal) {
 			}
 			//System.out.println("Moved to the last opened window ");
 			
-			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
 			reportStep("Moved to the last opened window","pass");
 		} catch (NoSuchWindowException e) {
 			// TODO Auto-generated catch block
@@ -862,7 +857,7 @@ public void clickByXpath(String xpathVal) {
 			driver.switchTo().alert().accept();
 			//System.out.println("The opened alert is accepted");
 			
-			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
 			reportStep("The opened alert is accepted","pass");
 			
 			
@@ -893,7 +888,7 @@ public void clickByXpath(String xpathVal) {
 			driver.switchTo().alert().dismiss();
 			//System.out.println("The opened alert is dismissed");
 			
-			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
 			
 			reportStep("The opened alert is dismissed","pass");
 			
@@ -926,7 +921,7 @@ public void clickByXpath(String xpathVal) {
 			//System.out.println(" getting the text "+alerttext+" which is displayed in the alert box");
 		
 			
-			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
 			reportStep(" getting the text "+alerttext+" which is displayed in the alert box","pass",false);
 		
 		} catch (NoAlertPresentException e) {
@@ -964,7 +959,7 @@ public void clickByXpath(String xpathVal) {
 			FileUtils.copyFile(input, output);
 			
 			//System.out.println("The screenshot taken successfully and copied to output "+output+" file");
-			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
 			
 			//reportStep("The screenshot taken successfully and copied to output "+output+" file","pass");
 			
@@ -992,7 +987,7 @@ public void clickByXpath(String xpathVal) {
 			//System.out.println("The browser is closed successfully");
 			
 			
-			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
 			reportStep("The browser is closed successfully","pass", false);
 			
 		} catch (WebDriverException e) {
@@ -1108,7 +1103,7 @@ public void clickByXpath(String xpathVal) {
 			sel5.selectByVisibleText(value);
 			//System.out.println("The element with xpath "+xpathValue+" is selected dropdown visible text "+value);
 			
-			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
 			reportStep("The element with xpath "+xpathValue+" is selected dropdown visible text "+value,"pass");
 			
 		} catch (NoSuchElementException e) {
@@ -1143,7 +1138,7 @@ public void clickByXpath(String xpathVal) {
 			Select sel6 = new Select(se6);
 			sel6.selectByIndex(value);
 			//System.out.println("The element with xpath "+xpathVal+" is selected dropdown using index value "+value);
-			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
 			reportStep("The element with xpath "+xpathVal+" is selected dropdown using index value "+value,"pass");
 			
 		} catch (NoSuchElementException e) {
@@ -1195,7 +1190,7 @@ public void clickByXpath(String xpathVal) {
 			sel7.selectByIndex(value);
 			//System.out.println("The element with name "+name+" is selected dropdown using index value "+value);
 			
-			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
 			reportStep("The element with name "+name+" is selected dropdown using index value "+value,"pass");
 			
 			
@@ -1302,7 +1297,7 @@ public void clickByXpath(String xpathVal) {
 			driver.switchTo().frame(frame);
 		//	System.out.println("The element with id "+id+" Switched to alert frame");
 			
-			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
 			reportStep("The element with id "+id+" Switched to alert frame","pass");
 		
 		}catch (WebDriverException e) {
@@ -1319,7 +1314,7 @@ public void clickByXpath(String xpathVal) {
 			WebElement frame=driver.findElement(By.xpath(xpath));
 			driver.switchTo().frame(frame);
 		//	System.out.println("The element with xpath "+xpath+" Switched to alert frame");
-			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
 			reportStep("The element with xpath "+xpath+" Switched to alert frame","pass");
 		
 		} catch (NoAlertPresentException e) {
@@ -1343,7 +1338,7 @@ public void clickByXpath(String xpathVal) {
 			driver.navigate().refresh();
 		//	System.out.println("The page is refreshed successfully");
 			
-			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
 			reportStep("The page is refreshed successfully","pass");
 		
 		} catch (WebDriverException e) {
@@ -1362,7 +1357,7 @@ public void clickByXpath(String xpathVal) {
 			driver.switchTo().defaultContent();
 			//System.out.println("Moved to defaultframe successfully");
 			
-			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
 			reportStep("Moved to defaultframe successfully","pass");
 			
 		} catch (WebDriverException e) {
@@ -1382,12 +1377,12 @@ public void clickByXpath(String xpathVal) {
 			
 			if(atext.contains(text)) {
 			//	System.out.println("The element with the id "+id+" is holding the text "+atext+" is partially mathched with expected text "+text);
-				driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+	
 				reportStep("The element with the id "+id+" is holding the text "+atext+" is partially mathched with expected text "+text,"pass");
 			
 			}else {
 			//	System.err.println("The element with the id "+id+" is holding the text "+atext+" is not matched with expected text "+text);
-				driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+	
 				reportStep("The element with the id "+id+" is holding the text "+atext+" is not matched with expected text "+text,"fail");
 			
 			}
@@ -1424,7 +1419,7 @@ public void clickByXpath(String xpathVal) {
 			
 			//System.out.println("The element entered the given data "+data+" in the alert successfully");
 			
-			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
 			reportStep("The element entered the given data "+data+" in the alert successfully","pass",false);
 		
 		
@@ -1509,7 +1504,7 @@ public void clickByXpath(String xpathVal) {
 		} catch (NoSuchElementException e) {
 			// TODO Auto-generated catch block
 			//System.err.println("The element with the xpath "+xpathValue+" is not found in the DOM ");
-			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
 			reportStep("The element with the xpath "+Xpath+" is not found in the DOM ","fail");
 			
 		}catch (ElementNotInteractableException e) {

@@ -10,12 +10,13 @@ import com.relevantcodes.extentreports.LogStatus;
 public abstract class Reporting {
 
 	public static ExtentReports report;
+	
 	public String repName;
 	
 	public static ExtentTest test;
 	
-	
 	public String testCaseName, testCaseDescription;
+	
 	public String author, category;	
 	
 	public void startReport(){	

@@ -37,8 +37,8 @@ public class TC_004_DemoBlaze_SendMSG_ContactUS extends ProjectWrappers{
 	                    //enter text message in the msg text box of msg form
 	                    .enterMessageText(msgText)
 	                    //CLICK SEND MSG BUTTON , CAPTURE SUCCESS MSG FROM ALERT AND VALIDATE THE MESSAGE AND CLOSE THE ALERT	                 
-	                   .clickSendMsg()
-	                   .acceptAlert();
+	                   .clickSendMsg();
+	                  
 	           
 	                  //Validate login MSG text AFTER LOGIN MATCH
 	                    
